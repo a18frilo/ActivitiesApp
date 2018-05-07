@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">a18frilo - assignment 3</string>
+    <string name="title_activity_mountain_details">MountainDetailsActivity</string>
 </resources>
