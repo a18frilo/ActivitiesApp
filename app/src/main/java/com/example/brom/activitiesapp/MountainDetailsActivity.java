@@ -26,8 +26,8 @@ public class MountainDetailsActivity extends AppCompatActivity {
         TextView textViewName = (TextView)findViewById(R.id.text_MountainName);
         TextView textViewLocation = (TextView)findViewById(R.id.text_MountainLocation);
         TextView textViewHeight = (TextView)findViewById(R.id.text_MountainHeight);
-        textViewName.setText(messageName);
-        textViewLocation.setText(messageLocation);
-        textViewHeight.setText(messageHeight);
+        textViewName.setText("Mountain: " + messageName);
+        textViewLocation.setText("Location: " + messageLocation);
+        textViewHeight.setText("Height: " + messageHeight);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.brom.activitiesapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static android.R.id.meddage;
+import static android.R.id.message;
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d("brom","onCreate() called.");
+        //Log.d("brom","onCreate() called.");
 
         List<String> MountainList = new ArrayList<String>(Arrays.asList(mountainNames));
 
-        ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), R.layout.content_mountain_details,R.id.testForMountains, MountainList);
+        ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), R.layout.text_file,R.id.text_header, MountainList);
 
         ListView myListView = (ListView)findViewById(R.id.my_listview);
         myListView.setAdapter(adapter);
@@ -38,10 +39,12 @@ public class MainActivity extends AppCompatActivity {
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               Intent intent = new Intent(getApplicationContext(), MountainDetailsActivity.class);
+               Intent intent = new Intent(MainActivity.this, MountainDetailsActivity.class);
+               Bundle bund = new Bundle();
                intent.putExtra("MountainName", mountainNames[position]);
                intent.putExtra("MountainHeight", Integer.toString(mountainHeights[position]));
                intent.putExtra("MountainLocation", mountainLocations[position]);
+               intent.putExtras(bund);
                startActivity(intent);
            }
         });
